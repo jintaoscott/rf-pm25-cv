@@ -1,0 +1,6 @@
+data/2015_2019AQData.csv
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+results/figure_sweeps_2019_smoke/
+figures/

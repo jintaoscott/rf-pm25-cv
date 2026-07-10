@@ -1,0 +1,12 @@
+
+============================================================
+spatial-CV Optimization (100 trials)
+Best R²: 0.8582
+Best params: {'max_features': 20, 'max_samples': 0.998370137990351, 'max_depth': 32, 'min_samples_split': 3}
+Time: 689s
+
+============================================================
+temporal-CV Optimization (100 trials)
+Best R²: 0.4324
+Best params: {'max_features': 3, 'max_samples': 0.9705474591587601, 'max_depth': 40, 'min_samples_split': 2}
+Time: 338s
