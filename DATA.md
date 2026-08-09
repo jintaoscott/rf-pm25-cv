@@ -75,6 +75,31 @@ reproduction of this study's input.
   chn_pd_YYYY_1km.tif) sampled at the station coordinates, one value per
   year 2015-2019.
 
+## Integrity of the distributed tables
+
+The six auxiliary tables are row/column subsets of the study's original
+feature tables, produced by text-level subsetting: rows are restricted to
+the 157 national-network stations and unnecessary identifying and metadata
+columns are dropped, but
+every retained field keeps its exact original byte string. The
+`latitude`/`longitude` columns of `landuse.csv` and `road.csv` are part of
+the model input, not metadata: through the merge order in
+`src/data.py::load_dataset` they are the station coordinates the Date-ID
+model uses. Design matrices built from these auxiliary tables are identical to
+those built from the full originals. With the original PM2.5 table and row
+order, the result tables reproduce at the reported precision; see README,
+"Reproducing the experiments". SHA-256 of the distributed
+files:
+
+```
+810bd9d1256b8d59b57c785f3d08ac3afa069a8e6fef93e818892ff103b309d4  Weather2015_2019_Stations_daily.csv
+dbaf6054c76a666ae8b759163f3c80d238fadf75273e66083295d2d178988244  aod_sites.csv
+bda7423f35eb26dfcb25a7545583b59882ac85a4b171b5d0384b214ba3b03b6c  aod_sites_2.csv
+923a2e670d9bd09258b1000fa5352f3d89223319a29a30dd7395fb58ee8f2eef  landuse.csv
+5f108dc7ba5f72ddf4ce6fd0ac5faf2e88174cf9c23217a76b90aeec50316401  road.csv
+aadd0e0f3af11977019a77776a24f2eb15d3e49af95eb89261785547e04f584d  population.csv
+```
+
 ## Attributions for redistributed derived data
 
 - Weather variables: generated using Copernicus Climate Change Service
