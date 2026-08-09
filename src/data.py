@@ -115,8 +115,10 @@ def prepare_features(df, model_variant="non_aod", station_subset=None):
     features = config.FEATURES[model_variant]
     keep_cols = features + [config.TARGET, "index", "random_dateid",
                             "Code", "latitude", "longitude", "dateid"]
-    # Only keep columns that exist in df
-    keep_cols = [c for c in keep_cols if c in df.columns]
+    # Only keep columns that exist in df, and only once each: the date_id feature
+    # list overlaps the bookkeeping columns, and selecting a repeated name from a
+    # DataFrame returns every matching column.
+    keep_cols = list(dict.fromkeys(c for c in keep_cols if c in df.columns))
     dfx = df[keep_cols].dropna()
 
     return dfx, features

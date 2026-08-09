@@ -34,6 +34,25 @@ open licences; the PM2.5 table must be obtained separately (see `DATA.md`).
 Environment: Python >= 3.10, see `requirements.txt`
 (results in the paper: scikit-learn 1.7.x, 128-core Linux server).
 
+`results/` holds the study's result tables. Reproducing them at the
+reported precision requires the original PM2.5 table in its original row
+order (fold construction follows input row order), the distributed
+auxiliary tables, and scikit-learn 1.7.x. With a PM2.5 table rebuilt from
+the public archive, the results agree within the fold-to-fold standard
+deviations given in each table.
+
+## Versions
+
+`freeze-2026-07-14` tags the code and results as submitted. Relative to
+that tag, `main` restores the station-coordinate columns the Date-ID model
+uses in `landuse.csv` and `road.csv`, and fixes a defect in `src/data.py`
+that built the Date-ID design matrix with each of its three columns
+duplicated; the affected result files (the Date-ID rows of
+`results/baseline_all_years.csv` and the eight `*_dll` sweep files) are
+updated to the corrected values. The largest change is 0.015 in the
+Temporal-CV `max_features` curve; no conclusion or number quoted in the
+paper changes. The commit messages record what was verified.
+
 ## Key results at a glance (2019, Non-AOD model)
 
 - Random-CV / Spatial-CV / Temporal-CV R2: 0.87 / 0.85 / 0.37
