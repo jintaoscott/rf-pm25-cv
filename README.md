@@ -43,15 +43,15 @@ deviations given in each table.
 
 ## Versions
 
-`freeze-2026-07-14` tags the code and results as submitted. Relative to
-that tag, `main` restores the station-coordinate columns the Date-ID model
-uses in `landuse.csv` and `road.csv`, and fixes a defect in `src/data.py`
-that built the Date-ID design matrix with each of its three columns
-duplicated; the affected result files (the Date-ID rows of
-`results/baseline_all_years.csv` and the eight `*_dll` sweep files) are
-updated to the corrected values. The largest change is 0.015 in the
-Temporal-CV `max_features` curve; no conclusion or number quoted in the
-paper changes. The commit messages record what was verified.
+`freeze-2026-07-14` is the initial-submission version of the code and
+results. Relative to that tag, `main` restores the station-coordinate
+columns the Date-ID model uses in `landuse.csv` and `road.csv`, and fixes
+a defect in `src/data.py` that built the Date-ID design matrix with each
+of its three columns duplicated; the affected result files (the Date-ID
+rows of `results/baseline_all_years.csv` and the eight `*_dll` sweep
+files) are updated to the corrected values. The largest change is 0.015
+in the Temporal-CV `max_features` curve; no conclusion or number quoted
+in the paper changes. The commit messages record what was verified.
 
 ## Key results at a glance (2019, Non-AOD model)
 
